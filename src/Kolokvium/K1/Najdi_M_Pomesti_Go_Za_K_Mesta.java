@@ -3,7 +3,6 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 
-
 public class Najdi_M_Pomesti_Go_Za_K_Mesta {
     public static void shiftLeft(DLL<Integer> lista, DLLNode<Integer> node) {
         if (lista.getFirst().equals(node)) {
