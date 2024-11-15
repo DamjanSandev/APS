@@ -5,18 +5,17 @@ import java.util.Scanner;
 public class ListaOdListi {
 
     public static long findMagicNumber(DLL<DLL<Integer>> list) {
-        //Vashiot kod tuka...
         long product = 1;
-        DLLNode<DLL<Integer>> listiJazel = list.getFirst();
-        while (listiJazel != null) {
-            DLLNode<Integer> elementiNaListaJazel = listiJazel.element.getFirst();
-            Integer suma = 0;
-            while (elementiNaListaJazel != null) {
-                suma += elementiNaListaJazel.element;
-                elementiNaListaJazel = elementiNaListaJazel.succ;
+        DLLNode<DLL<Integer>> listiNode = list.getFirst();
+        while (listiNode != null) {
+            DLLNode<Integer> curr = listiNode.element.getFirst();
+            int sum = 0;
+            while (curr != null) {
+                sum += curr.element;
+                curr = curr.succ;
             }
-            product *= suma;
-            listiJazel = listiJazel.succ;
+            product *= sum;
+            listiNode = listiNode.succ;
         }
         return product;
     }

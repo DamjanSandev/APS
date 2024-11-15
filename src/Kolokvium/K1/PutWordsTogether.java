@@ -6,20 +6,39 @@ public class PutWordsTogether {
     public static void putWordsTogether(SLL<String> list) {
         System.out.println(list);
         //Pomosna lista
-        SLL<String> result = new SLL<>();
-        String zbor = "";
+//        SLL<String> result = new SLL<>();
+//        String zbor = "";
+//        SLLNode<String> curr = list.getFirst();
+//        while (curr != null) {
+//            if (curr.element.equals(",")) {
+//                result.insertLast(zbor);
+//                zbor = "";
+//            } else {
+//                zbor += curr.element;
+//                //"cat"
+//            }
+//            curr = curr.succ;
+//        }
+//        result.insertLast(zbor);
+//        System.out.println(result);
+
+
+        //Bez Pomosna lista
         SLLNode<String> curr = list.getFirst();
+        String zbor = "";
         while (curr != null) {
             if (curr.element.equals(",")) {
-                result.insertLast(zbor);
+                curr.element = zbor;
                 zbor = "";
             } else {
+                list.delete(curr);
                 zbor += curr.element;
             }
             curr = curr.succ;
         }
-        result.insertLast(zbor);
-        System.out.println(result);
+        list.insertLast(zbor);
+        System.out.println(list);
+
     }
 
     public static void main(String[] args) {
