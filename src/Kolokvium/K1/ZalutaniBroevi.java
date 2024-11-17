@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ZalutaniBroevi {
+    //Od Zadaci za vezbanje za tehniki na algoritmi na courses
     public static void main(String[] args) {
         //1 3 4 5 2 6 8 7
         Scanner in = new Scanner(System.in);

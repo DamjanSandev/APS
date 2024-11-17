@@ -6,12 +6,17 @@ import java.io.InputStreamReader;
 
 
 public class StackPathDirectory {
+    //Treba daden directory path da se iscisti na nacin sto:
+    //treba da se izbrisat ekstra "/"
+    //dokolku imeto na fajlot ili direktoriumot e vo format .(nekoj broj)
+    //pr dokolku e . se brise samiot, dokolku e .2 se brise samiot i dvata prethodni
+    //sekogas patekata treba da zapocnuva so / i da zavrsuva so imeto na fajlot t.e. bez /  na kraj
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String line = br.readLine();
         Stack<String> stack = new ArrayStack<>(1000);
-        // /abc///cde/xyz/.1/asdf//a1.b2/newdir/.2/a/
-        // /abc/cde/asdf/a
+        // input: /abc///cde/xyz/.1/asdf//a1.b2/newdir/.2/a/
+        // output: /abc/cde/asdf/a
 
 
         String filteredLine = "";

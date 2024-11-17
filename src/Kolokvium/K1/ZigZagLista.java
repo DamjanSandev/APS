@@ -3,6 +3,12 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class ZigZagLista {
+    //Listata treba da se napravi zig zag
+    //1. Dokolku elementot e 0 se brise
+    //2.Ako ima dva pozitivni eden do drug se brise vtoriot
+    //3.AKo ima dva negativni eden do drug izmegju se niv dodava nov jazel so vrednost absoluten broj od prviot jazel
+    //input: 4 7 -3 -2 0 7 7 9
+    //output: 4 -3 3 -2 7
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

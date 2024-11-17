@@ -3,6 +3,8 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class DeleteSLL {
+    //Ako brojot na pojavuvanja na "br" vo listata e neparen da se dodade
+    //nov jazel pred prvoto pojavuvanje na "br"
     public static void change(SLL<Integer> list, int br) {
         int counter = 0;
         SLLNode<Integer> curr = list.getFirst();

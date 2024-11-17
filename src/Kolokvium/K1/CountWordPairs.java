@@ -3,6 +3,27 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class CountWordPairs {
+/*
+Дадени се N зборови (N>=2). Најдете го бројот на парови од зборови коишто почнуваат на иста буква.
+
+Влез: Во првиот ред од влезот е даден бројот на зборови (N). Потоа, во следните N редови влез, се дадени самите зборови.
+
+Излез: На излез треба да се испечати бројот на парови од зборови коишто почнуваат на иста буква.
+Primer:
+input:
+8
+carrot
+dog
+banana
+elephant
+cherry
+boat
+dolphin
+cat
+output:
+5
+
+ */
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

@@ -3,6 +3,7 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class TargetL {
+    //Od Zadaci za vezbanje na Nizi i Listi postaveni na courses
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

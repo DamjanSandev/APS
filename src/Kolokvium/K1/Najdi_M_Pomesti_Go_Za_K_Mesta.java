@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 
 public class Najdi_M_Pomesti_Go_Za_K_Mesta {
+    //Od Zadaci za vezbanje na Nizi i Listi postaveni na courses
     public static void shiftLeft(DLL<Integer> lista, DLLNode<Integer> node) {
         if (lista.getFirst().equals(node)) {
             lista.insertLast(node.element);

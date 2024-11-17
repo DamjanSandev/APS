@@ -5,6 +5,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Brisi {
+
+/*
+Да се бришат елементи од дадена СЛЛ листа се додека има .. појасно тест пример. Првен еден елемент се печате еден се брише па 2 се печатат
+па 1 се брише па 3 се печатат ...
+
+Sample input:
+1 2 3 4 5 6 7 8 9
+
+Sample output:
+1->3->4->6->7->8->
+*/
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         SLL<Integer> list = new SLL<>();

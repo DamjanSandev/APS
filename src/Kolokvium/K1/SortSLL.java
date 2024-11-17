@@ -4,6 +4,7 @@ import javax.xml.crypto.AlgorithmMethod;
 import java.util.Scanner;
 
 public class SortSLL {
+    //Daa se sortira edna SLL Lista
     public static void main(String[] args) {
         SLL<Integer> lista = new SLL<>();
         Scanner sc = new Scanner(System.in);

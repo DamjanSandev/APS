@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class AlternatelyDeleteSLLElements {
 
     // TODO: implement function
+    //Naizmenicno se cuvaat m elementi pa se brisat n elementi od listata
+    //pr. 1 2 3 4 5 6 7 8 m=2 n=3 -> 1 2 6 7
     public static void keepDelete(SLL<Integer> list, int m, int n) {
         int countM = 0, countN = 0;
         SLLNode<Integer> curr = list.getFirst();

@@ -3,6 +3,12 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class PutWordsTogether {
+    /*
+     input: c a t , d o g , c o w
+     output:
+     c->a->t->,->d->o->g->,->c->o->w
+     cat -> dog -> cow
+     */
     public static void putWordsTogether(SLL<String> list) {
         System.out.println(list);
         //Pomosna lista
