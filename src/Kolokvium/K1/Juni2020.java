@@ -17,6 +17,8 @@ Sample input:
 5
 10 4 5 3 6
 
+16 10 7 4 3 6
+
 16 10 7 4 5 3 6
 
 5/2=2
@@ -29,6 +31,8 @@ Sample output:
 Sample input:
 6
 10 4 5 3 6 8
+
+18 10 10 6 8 5 3 6 8
 
 18 10 10 6 8 5 3 6 8
 
@@ -58,22 +62,21 @@ public class Juni2020 {
     }
 
     public static void modified(DLL<Integer> lista) {
-
-        DLLNode<Integer> levo = lista.getFirst();
-        DLLNode<Integer> desno = lista.getLast();
         int n = lista.getSize();
+        DLLNode<Integer> pocetok = lista.getFirst();
+        DLLNode<Integer> kraj = lista.getLast();
         for (int i = 0; i < n / 2; i++) {
-            if (levo.element > desno.element) {
-                lista.insertAfter(levo.element, levo);
+            if (pocetok.element > kraj.element) {
+                lista.insertAfter(pocetok.element, pocetok);
             } else {
-                lista.insertAfter(desno.element, levo);
+                lista.insertAfter(kraj.element, pocetok);
             }
-            levo.element = levo.element + desno.element;
-            levo = levo.succ.succ;
-            desno = desno.pred;
+            pocetok.element = pocetok.element + kraj.element;
+
+            pocetok = pocetok.succ.succ;
+            kraj = kraj.pred;
         }
         System.out.println(lista);
-
     }
 
 }

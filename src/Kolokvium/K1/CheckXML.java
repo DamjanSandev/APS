@@ -39,7 +39,7 @@ Podatok
             redovi[i] = br.readLine();
 
         int valid = 0;
-
+        //Vasiot kod tuka !!!
         Stack<String> stack = new ArrayStack<>(redovi.length);
 
         for (int i = 0; i < redovi.length; i++) {

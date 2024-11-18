@@ -2,9 +2,13 @@ package Kolokvium.K1;
 
 import java.util.Scanner;
 
+import java.util.Stack;
+
 public class validFunctions {
     /*
-Даден е код на модифициран програмски јазик каде функциите се претставени со отворен и затворен таг ("imeFunkcija" и "endimeFunkcija"). Ваша задача е да дефинирате дали даден програмски код е валиден.
+Даден е код на модифициран програмски јазик каде функциите се претставени
+со отворен и затворен таг ("imeFunkcija" и "endimeFunkcija").
+ Ваша задача е да дефинирате дали даден програмски код е валиден.
 
 Пример валиден код:
 
@@ -30,28 +34,35 @@ endfunc1
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String line;
-        Stack<String> stack = new ArrayStack<>(10000);
+        Stack<String> stack = new Stack<>();
         while (true) {
             line = sc.nextLine();
             if (line.equals("x")) {
                 break;
             }
-            if (!line.contains("end")) {
+            if (!line.startsWith("end")) {
                 stack.push(line);
             } else {
-                String filtered = line.replace("end", "");
                 if (stack.isEmpty()) {
-                    stack.push("x");
+                    //znaeme deka e invalid,stavame neso na stack
+                    //za na kraj da ne bide prazen
+                    stack.push("random");
                     break;
                 }
-                if (filtered.equals(stack.peek())) {
+                String opening = stack.peek();
+                String closing = line.replace("end", "");
+                if (opening.equals(closing)) {
                     stack.pop();
+                } else {
+                    break;
                 }
             }
         }
-        if (stack.isEmpty())
+        if (stack.isEmpty()) {
             System.out.println("Valid");
-        else
+        } else {
             System.out.println("Invalid");
+        }
     }
+
 }

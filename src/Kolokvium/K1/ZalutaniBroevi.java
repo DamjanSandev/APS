@@ -8,10 +8,15 @@ public class ZalutaniBroevi {
     //Od Zadaci za vezbanje za tehniki na algoritmi na courses
     public static void main(String[] args) {
         //1 3 4 5 2 6 8 7
+        // 3 1
+        //4 3
+        //5 4
+        //i 2  j - > 5 4 3 1
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int[] arr = new int[n];
         List<int[]> zalutani = new ArrayList<>();
+        //
         //[0,1]
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();

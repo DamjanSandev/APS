@@ -11,6 +11,8 @@ public class Najdi_M_Pomesti_Go_Za_K_Mesta {
             lista.deleteFirst();
             return;
         }
+        // 1 3 2 4
+
         DLLNode<Integer> pred = node.pred;
         lista.insertBefore(node.element, pred);
         lista.delete(node);

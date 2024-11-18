@@ -21,18 +21,21 @@ public class ZigZagLista {
             if (curr.element.equals(0)) {
                 lista.delete(curr);
                 curr = curr.succ;
-            } else if (curr.element < 0 && curr.succ.element < 0) {
-                lista.insertAfter(curr.element * (-1), curr);
-                curr = curr.succ;
             } else if (curr.element > 0 && curr.succ.element > 0) {
                 lista.delete(curr.succ);
+
+            } else if (curr.element < 0 && curr.succ.element < 0) {
+                lista.insertAfter(curr.element * -1, curr);
+                curr = curr.succ;
             } else {
+                //dokolku se cik cak
                 curr = curr.succ;
             }
         }
         if (curr.element.equals(0)) {
             lista.delete(curr);
         }
+
         System.out.println(lista);
     }
 }

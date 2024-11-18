@@ -3,7 +3,7 @@ package Kolokvium.K1;
 import java.util.Scanner;
 
 public class ListaOdListi {
-
+    //Zadaci za prv kolokvim 2ra
     public static long findMagicNumber(DLL<DLL<Integer>> list) {
         long product = 1;
         DLLNode<DLL<Integer>> listiNode = list.getFirst();

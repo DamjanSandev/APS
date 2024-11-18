@@ -7,8 +7,12 @@ import java.util.Scanner;
 Да се отстранат дупликатите, и јазлите да се распределат наизменично ( ако има две согласки или самогласки додруго, втората се брише).
 
 Sample input:
-a a e k k l i i s s
-a e k l i s
+a a e k k l i i s
+a k i s
+
+//Ako node.succ==null ako naprais node.succ.element ke ti frli exception
+//Ako node==null ti veke tuka ako naprais bilo node.element ili node.succ lke ti frli exception
+
 
 Sample output:
 a<->k<->i<->s
@@ -52,6 +56,8 @@ public class Bukvi {
 //    a<->k<->i<->s
     public static void alternateCharacters(DLL<String> list) {
         DLLNode<String> curr = list.getFirst();
+        //a k i s
+        //
         while (curr.succ != null) {
             if (daliESamoglaska(curr.element.charAt(0)) && daliESamoglaska(curr.succ.element.charAt(0))) {
                 list.delete(curr.succ);
