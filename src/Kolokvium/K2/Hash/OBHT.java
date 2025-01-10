@@ -1,6 +1,4 @@
-package Kolokvium.K2;
-
-import Kolokvium.K2.MapEntry;
+package Kolokvium.K2.Hash;
 
 public class OBHT<K, E> {
 

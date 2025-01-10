@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Hash;
 
 public class MapEntry<K, E> {
     // Each MapEntry object is a pair consisting of a key

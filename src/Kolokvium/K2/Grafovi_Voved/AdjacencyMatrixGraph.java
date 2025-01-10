@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Grafovi_Voved;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class AdjacencyMatrixGraph<T> {
 
 	public void addEdge(int source, int destination) {
 		matrix[source][destination] = 1;
-		matrix[destination][source] = 1; // For undirected graph
+		//matrix[destination][source] = 1; // For undirected graph
 		}
 	
 	public boolean isEdge(int source, int destination) {
@@ -35,7 +35,7 @@ public class AdjacencyMatrixGraph<T> {
 	
 	public void removeEdge(int source, int destination) {
 		matrix[source][destination] = 0;
-		matrix[destination][source] = 0; // For undirected graph
+		//matrix[destination][source] = 0; // For undirected graph
 	}
 	
 	@SuppressWarnings("unchecked")

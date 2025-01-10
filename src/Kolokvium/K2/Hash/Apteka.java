@@ -1,8 +1,6 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Hash;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Objects;
 import java.util.Scanner;
 

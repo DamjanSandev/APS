@@ -1,11 +1,10 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Drva;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Kolokvium.K2.SLLTree.SLLNode;
-import Kolokvium.K2.Tree.Node;
+import Kolokvium.K2.Drva.SLLTree.SLLNode;
 
 public class Lab_7_Doma_2024 {
     public static int countLeafNodes(SLLNode<Integer> node) {

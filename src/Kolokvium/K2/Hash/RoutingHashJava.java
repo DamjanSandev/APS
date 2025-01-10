@@ -1,8 +1,7 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Hash;
 
 import Kolokvium.K1.SLLNode;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class RoutingHashJava {

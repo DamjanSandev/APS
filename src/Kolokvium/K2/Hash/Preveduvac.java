@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Hash;
 
 import java.util.Scanner;
 

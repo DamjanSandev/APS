@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Binarni_Drva;
 
 import java.util.Scanner;
 

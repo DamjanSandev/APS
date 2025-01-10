@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Binarni_Drva;
 
 public class BinarySearchTree<E extends Comparable<E>> {
 

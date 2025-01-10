@@ -1,6 +1,4 @@
-package Kolokvium.K2;
-
-import Kolokvium.K1.SLLNode;
+package Kolokvium.K2.Hash;
 
 import java.util.*;
 

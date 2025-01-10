@@ -1,7 +1,6 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Grafovi_Algoritmi.Topolosko;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 public class AdjacencyListGraph<T> {
 	private Map<T, Set<T>> adjacencyList;
@@ -33,16 +32,12 @@ public class AdjacencyListGraph<T> {
 		addVertex(destination);
 
 		adjacencyList.get(source).add(destination);
-		adjacencyList.get(destination).add(source); // for undirected graph
 	}
 
 	// Remove an edge from the graph
 	public void removeEdge(T source, T destination) {
 		if (adjacencyList.containsKey(source)) {
 			adjacencyList.get(source).remove(destination);
-		}
-		if (adjacencyList.containsKey(destination)) {
-			adjacencyList.get(destination).remove(source); // for undirected graph
 		}
 	}
 
@@ -88,7 +83,42 @@ public class AdjacencyListGraph<T> {
 			}
 		}
 	}
-	
+
+	public void printPath(T source, T destination) {
+		Set<T> visited = new HashSet<>();
+		Stack<T> stack = new Stack<>();
+
+		stack.push(source);
+		visited.add(source);
+		while (!stack.isEmpty() && !stack.peek().equals(destination)) {
+			T vertex = stack.peek();
+
+			boolean f = true;
+			for(T neighbor: getNeighbors(vertex)) {
+				if(!visited.contains(neighbor)) {
+					stack.push(neighbor);
+					visited.add(neighbor);
+					f = false;
+					break;
+				}
+			}
+
+			if(f) {
+				stack.pop();
+			}
+		}
+
+		Stack<T> path = new Stack<>();
+
+		while(!stack.isEmpty()) {
+			path.push(stack.pop());
+		}
+
+		while(!path.isEmpty()) {
+			System.out.print(path.pop() + " ");
+		}
+	}
+
 	public void BFS(T startVertex) {
 		Set<T> visited = new HashSet<>();
 		Queue<T> queue = new LinkedList<>();
@@ -109,98 +139,39 @@ public class AdjacencyListGraph<T> {
 		}
 	}
 
-	public int shortestPath(T startVertex, T endVertex) {
-		Set<T> visited = new HashSet<>();
-		Queue<T> queue = new LinkedList<>();
-
-		visited.add(startVertex);
-		queue.add(startVertex);
-		int elementsAtLevel;
-		int level = 0;
-
-		while (!queue.isEmpty()) {
-			elementsAtLevel = queue.size();
-			while (elementsAtLevel > 0) {
-				T vertex = queue.poll();
-				if (vertex.equals(endVertex))
-					return level;
-
-				for (T neighbor : getNeighbors(vertex)) {
-					if (!visited.contains(neighbor)) {
-						visited.add(neighbor);
-						queue.add(neighbor);
-					}
-				}
-				elementsAtLevel--;
-			}
-			level++;
-		}
-		return -1;
-	}
-
-	public void pathsOfLengthN(T startVertex, int goalLength) {
-		Set<T> visited = new HashSet<>();
-		ArrayList<T> startPath = new ArrayList<>();
-		startPath.add(startVertex);
-		pathsOfLengthNUtil(startVertex, goalLength, visited, startPath);
-	}
-
-	private void pathsOfLengthNUtil(T vertex, int goalLength, Set<T> visited, List<T> currentPath) {
-		if (currentPath.size()==goalLength+1) {
-			System.out.println(currentPath);
-			return;
-		}
+	// DFS utility function used for topological sorting
+	private void topologicalSortUtil(T vertex, Set<T> visited, Stack<T> stack) {
 		visited.add(vertex);
 		for (T neighbor : getNeighbors(vertex)) {
 			if (!visited.contains(neighbor)) {
-				currentPath.add(neighbor);
-				pathsOfLengthNUtil(neighbor, goalLength, visited, currentPath);
-				currentPath.remove(neighbor);
+				topologicalSortUtil(neighbor, visited, stack);
 			}
 		}
-		visited.remove(vertex);
+		stack.push(vertex);
 	}
 
-
-	public void findPath(T startVertex, T endVertex) {
+	public List<T> topologicalSort() {
+		Stack<T> stack = new Stack<>();
 		Set<T> visited = new HashSet<>();
-		Stack<T> invertedPath = new Stack<>();
-		visited.add(startVertex);
-		invertedPath.push(startVertex);
 
-		while(!invertedPath.isEmpty() && !invertedPath.peek().equals(endVertex)) {
-			T currentVertex = invertedPath.peek();
-			T tmp = currentVertex;
-
-			for(T vertex : getNeighbors(currentVertex)) {
-				tmp = vertex;
-				if(!visited.contains(vertex)) {
-					break;
-				}
-			}
-
-			if(!visited.contains(tmp)) {
-				visited.add(tmp);
-				invertedPath.push(tmp);
-			} 
-			else {
-				invertedPath.pop();
+		for (T vertex : adjacencyList.keySet()) {
+			if (!visited.contains(vertex)) {
+				topologicalSortUtil(vertex, visited, stack);
 			}
 		}
 
-		Stack<T> path = new Stack<>();
-		while(!invertedPath.isEmpty()) {
-			path.push(invertedPath.pop());
+		List<T> order = new ArrayList<>();
+		while (!stack.isEmpty()) {
+			order.add(stack.pop());
 		}
-		while(!path.isEmpty()) {
-			System.out.println(path.pop());
-		}
+		return order;
 	}
-	
+
+
 	@Override
 	public String toString() {
 		String ret = new String();
-		for (Entry<T, Set<T>> vertex : adjacencyList.entrySet())
+		for (Map.Entry<T, Set<T>> vertex : adjacencyList.entrySet())
 			ret += vertex.getKey() + ": " + vertex.getValue() + "\n";
 		return ret;
 	}

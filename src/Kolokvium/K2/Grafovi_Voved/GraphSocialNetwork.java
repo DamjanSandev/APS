@@ -1,4 +1,4 @@
-package Kolokvium.K2;
+package Kolokvium.K2.Grafovi_Voved;
 
 import java.util.Scanner;
 
