@@ -1,7 +1,20 @@
 package Kolokvium.K2.Hash;
 
 import java.util.Scanner;
-
+//Се внесува општина и треба да се најде просекот на ПМ Честичките за таа Општина!
+//
+//Влез:
+//        6
+//Aerodrom 234,43
+//Centar 222,434
+//Aerodrom 123,54
+//Karpos 342,12
+//Aerodrom 153,34
+//GaziBaba 231,42
+//Aerodrom
+//
+//Излез:
+//        170,44
 public class PM_Cesticki {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
