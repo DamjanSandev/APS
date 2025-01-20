@@ -10,7 +10,7 @@ public class SLLTree<E> implements Tree<E> {
     public static class SLLNode<P> implements Node<P> {
 
         // Holds the links to the needed nodes
-         SLLNode<P> parent, sibling, firstChild;
+        public SLLNode<P> parent, sibling, firstChild;
 
         // Hold the data
         P element;
@@ -161,12 +161,13 @@ public class SLLTree<E> implements Tree<E> {
 
     @Override
     public Iterable<Node<E>> childrenNodes(Node<E> node) {
-        return new NodeIterable(((SLLNode<E>)node).firstChild);
+        return new NodeIterable(((SLLNode<E>) node).firstChild);
     }
 
-    public class NodeIterable implements Iterable<Node<E>>{
+    public class NodeIterable implements Iterable<Node<E>> {
 
         Node<E> start;
+
         public NodeIterable(Node<E> start) {
             this.start = start;
         }

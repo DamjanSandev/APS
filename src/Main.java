@@ -1,16 +1,32 @@
+import Kolokvium.K1.DLL;
+import Kolokvium.K1.DLLNode;
+import Kolokvium.K1.SLL;
+import Kolokvium.K1.SLLNode;
+
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        SLL<String> lista = new SLL<>();
         int n = sc.nextInt();
-        int[] a = new int[n];
+        sc.nextLine();
         for (int i = 0; i < n; i++) {
-            a[i] = sc.nextInt();
+            String line = sc.nextLine();
+            lista.insertLast(line);
         }
-        Arrays.sort(a); //vo rastecki redosled
-        for (int i = a.length - 1; i >= 0; i--) {
-            System.out.printf("%d", a[i]);
+        int len = sc.nextInt();
+        System.out.println(lista);
+        SLLNode<String> curr = lista.getFirst();
+        while (curr != null) {
+            if (curr.element.length() == len) {
+                lista.insertAfter("Target", curr);
+                curr = curr.succ;
+            }
+            curr = curr.succ;
         }
+        //Sky->SkyBlu->Target->target->Blue->Cloud
+        //L=6
+        System.out.println(lista);
     }
 }
